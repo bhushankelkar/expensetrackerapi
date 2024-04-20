@@ -67,9 +67,9 @@ public class ExpenseServiceImpl implements ExpenseService{
             existingExpense.setAmount(expense.getAmount());
         if(expense.getDate() != null)
             existingExpense.setDate(expense.getDate());
-        if(expense.getName() != null)
+        if(expense.getName() != null && !expense.getName().isBlank())
             existingExpense.setName(expense.getName());
-        if(expense.getCategory() != null)
+        if(expense.getCategory() != null && !expense.getName().isBlank())
             existingExpense.setCategory(expense.getCategory());
         if(expense.getDescription() != null)
             existingExpense.setDescription(expense.getDescription());
