@@ -20,15 +20,17 @@ public class ExpenseController {
     public Expense createExpense(@RequestBody Expense expense){
         return expenseService.createExpense(expense);
     }
-//    @GetMapping("/expenses")
-//    public List<Expense> getAllExpenses(){
-//        return expenseService.getAllExpenses();
-//    }
 
     @GetMapping("/expenses")
-    public List<Expense> getAllExpenses(Pageable page){
-        return expenseService.getAllExpenses(page).toList();
+    public List<Expense> getAllExpenses(){
+        return expenseService.getAllExpenses();
     }
+
+//    @GetMapping("/expenses")
+//    public List<Expense> getAllExpenses(Pageable page){
+//        return expenseService.getAllExpenses(page).toList();
+//    }
+
     @GetMapping("/expenses/{id}")
     public Expense getExpenseById(@PathVariable("id") Long id){
         return expenseService.getExpenseById(id);

@@ -1,6 +1,7 @@
 package in.bhushan.expensetrackerapi.service;
 
 import in.bhushan.expensetrackerapi.entity.Expense;
+import in.bhushan.expensetrackerapi.exceptions.ResourceNotFoundException;
 import in.bhushan.expensetrackerapi.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,7 +32,7 @@ public class ExpenseServiceImpl implements ExpenseService{
         if(expense.isPresent()){
             return expense.get();
         }
-        throw new RuntimeException("Expense not found for the id " +id);
+        throw new ResourceNotFoundException("Expense not found for the id " +id);
     }
 
     @Override
