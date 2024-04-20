@@ -43,7 +43,7 @@ public class ExpenseServiceImpl implements ExpenseService{
             expenseRepository.deleteById(id);
         }
         else {
-            throw new RuntimeException("Expense not found for the id " + id);
+            throw new ResourceNotFoundException("Expense not found for the id " + id);
         }
     }
 
