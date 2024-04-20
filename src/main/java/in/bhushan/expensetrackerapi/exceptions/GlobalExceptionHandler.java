@@ -23,19 +23,19 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ErrorObject> handleException(MethodArgumentTypeMismatchException ex,WebRequest request){
-        ErrorObject object = new ErrorObject();
-        object.setStatusCode(HttpStatus.BAD_REQUEST.value());
-        object.setMessage(ex.getMessage());
-        object.setTimestamp(new Date());
-        return new ResponseEntity<ErrorObject>(object,HttpStatus.BAD_REQUEST);
+        ErrorObject erObject = new ErrorObject();
+        erObject.setStatusCode(HttpStatus.BAD_REQUEST.value());
+        erObject.setMessage(ex.getMessage());
+        erObject.setTimestamp(new Date());
+        return new ResponseEntity<ErrorObject>(erObject,HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorObject> handleGeneralException(Exception ex,WebRequest request){
-        ErrorObject object = new ErrorObject();
-        object.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        object.setMessage(ex.getMessage());
-        object.setTimestamp(new Date());
-        return new ResponseEntity<ErrorObject>(object,HttpStatus.INTERNAL_SERVER_ERROR);
+        ErrorObject erObject = new ErrorObject();
+        erObject.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        erObject.setMessage(ex.getMessage());
+        erObject.setTimestamp(new Date());
+        return new ResponseEntity<ErrorObject>(erObject,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
